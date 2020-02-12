@@ -25,7 +25,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  
+                                    @foreach($categorias as $categoria)
+                                        <a class="dropdow-item" href="#">{{$categoria->nombre_categoria}}</a>
+                                    @endforeach
                             </div>
                         </li>
                         <li class="nav-item">
