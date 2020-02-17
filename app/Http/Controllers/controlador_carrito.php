@@ -18,8 +18,9 @@ class controlador_carrito extends Controller
     public function mostrar_carrito(){
 
         $carrito= \Session::get('carrito');
+        $total= $this->total_pagar();
+        return view('carrito', compact('carrito', 'total'));
         
-        return view('carrito', compact('carrito'));
     }
 
     //agregar item
@@ -73,4 +74,17 @@ class controlador_carrito extends Controller
         return redirect()->route('mostrar_carrito');
     }
     //total a pagar
+
+    public function total_pagar(){
+
+        $datos= \DB::table('producto')->get();
+
+        $carrito= \Session::get('carrito');
+        $total=0;
+
+        foreach($carrito as $item){
+            $total += $item->precio_producto * $item->cantidad;
+        }
+        return $total;
+    }
 }

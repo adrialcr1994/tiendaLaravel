@@ -30,3 +30,4 @@ Route::get('carrito/borrar/{producto}', ['as'=>'borrar_item','uses'=>'controlado
 Route::get('carrito/vaciar', ['as'=>'vaciar_carrito','uses'=>'controlador_carrito@vaciar_carrito']);
 
 Route::get('carrito/actualizar/{producto}/{cantidad?}', ['as'=>'actualizar_item','uses'=>'controlador_carrito@actualizar_item']);
+

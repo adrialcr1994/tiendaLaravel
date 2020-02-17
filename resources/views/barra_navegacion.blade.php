@@ -25,7 +25,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @foreach($categorias as $categoria)
+                                    @foreach(DB::table('categoria')->get() as $categoria)
                                         <a class="dropdow-item" href="#">{{$categoria->nombre_categoria}}</a>
                                     @endforeach
                             </div>
@@ -33,10 +33,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contacto</a>
                         </li>
+                        
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Buscar en el sitio..." aria-label="Search">
-                        <a href="#" class="badge"><i class="material-icons">person</i></a>
+                        @include('menu-usuario')
                         <a href="{{route('mostrar_carrito')}}" class="badge"><i class="material-icons">shopping_cart</i></a>
                     </form>
                 </div>

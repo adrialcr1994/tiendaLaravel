@@ -21,7 +21,6 @@ class controlador_tienda extends Controller
 
         $datos= DB::table('producto')
             ->where('codigo_producto', $codigo_producto)->first();
-        //dd($datos);
         return view("especificaciones", ["datos" => $datos]);
     }
 }

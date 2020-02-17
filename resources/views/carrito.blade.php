@@ -71,7 +71,10 @@
                         </tr>
                     @endforeach
                     </tbody>
-                </table>
+                </table><hr>
+                    <h3>
+                        <span class="label label-success">Total a pagar: {{number_format($total,2)}} €</span>
+                    </h3>
             </div>
             @else
                 <h3><span class="label label-warning">No hay productos en el carrito</span></h3>
