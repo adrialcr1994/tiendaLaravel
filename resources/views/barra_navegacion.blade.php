@@ -56,7 +56,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->nick_usuario }}
+                                    {{ Auth::user()->nick }}
                                 </button>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
