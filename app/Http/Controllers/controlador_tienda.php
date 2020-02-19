@@ -16,11 +16,17 @@ class controlador_tienda extends Controller
        return view("listar_productos", ["productos" => $productos, "categorias"=>$categorias]);
     }
 
-
     public function detalles_producto($codigo_producto){
 
         $datos= DB::table('producto')
             ->where('codigo_producto', $codigo_producto)->first();
         return view("especificaciones", ["datos" => $datos]);
+    }
+
+    public function listar_categorias($id_categoria){
+        $productos= DB::table('producto')
+            ->where('id_categoria', $id_categoria)->get();
+        
+            return view("productos_por_categoria", ["productos" => $productos]);
     }
 }

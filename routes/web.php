@@ -18,6 +18,7 @@ Route::get('/', ['as'=>'inicio','uses'=>'controlador_tienda@listar_destacados'])
 
 Route::get('producto/{codigo_producto}', ['as'=>'detalles_producto','uses'=>'controlador_tienda@detalles_producto']);
 
+Route::get('categorias/{id_categoria}', ['as'=>'categorias','uses'=>'controlador_tienda@listar_categorias']);
 
 //Carrito
 
