@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -24,13 +25,32 @@
 
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+<header>
+    <div id="app" >
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: darkorange;">
+        <a class="navbar-brand" href="#"><i class="material-icons">computer</i> Computronic</a>
+                
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('inicio')}}">Inicio </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    @foreach(DB::table('categoria')->get() as $categoria)
+                                        <a class="dropdow-item" href="{{route('categorias', $categoria->id_categoria)}}">{{$categoria->nombre_categoria}}</a>
+                                    @endforeach
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            <div class="container" >
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  
 
+ 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -65,6 +85,9 @@
                     </ul>
                 </div>
             </div>
+            
+            <a href="{{route('mostrar_carrito')}}" class="badge"><i class="material-icons">shopping_cart</i></a>
+
         </nav>
     </div>
 
@@ -72,5 +95,6 @@
     <br>
     @yield('content')
     </div>
+    </header>
 </body>
 </html>

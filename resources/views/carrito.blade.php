@@ -54,7 +54,21 @@
                                     value="{{$item->cantidad}}"
                                     id="producto_{{$item->codigo_producto}}"
                                 >
+                            @if($item->cantidad > $item->stock)
 
+                            <span>No Hay Suficiente Stock en tienda</span>
+
+                            <a 
+                                    href="#" 
+                                    class="btn btn-warning btn-update-item"
+                                    data-href="{{route('actualizar_item', $item->codigo_producto)}}"
+                                    data-id="{{ $item->codigo_producto }}"
+                                    ><i class="fas fa-sync-alt"></i>
+                                
+                                </a>     
+                            
+                            @else
+                           
                                 <a 
                                     href="#" 
                                     class="btn btn-warning btn-update-item"
@@ -63,6 +77,8 @@
                                     ><i class="fas fa-sync-alt"></i>
                                 
                                 </a>
+                            
+                            @endif
                             </td>
                             <td>{{number_format($item->precio_producto * $item->cantidad,2)}} €</td>
                             <td>
@@ -82,8 +98,19 @@
 
             <hr>
             <p>
+                
                 <a href="{{route('inicio')}}" class="btn btn-primary"><i class="fa fa-chevron-circle-left"></i> Seguir Comprando</a>
+                @foreach($carrito as $item)
+                
+                @if($item->cantidad > $item->stock)
+                <a href="#" class="btn btn-warning" hidden>Finalizar Compra <i class="fa fa-chevron-circle-right"></i></a>
+                
+                @else
                 <a href="#" class="btn btn-warning">Finalizar Compra <i class="fa fa-chevron-circle-right"></i></a>
+
+                @endif
+
+                @endforeach
             </p>
         </div>
     </div>

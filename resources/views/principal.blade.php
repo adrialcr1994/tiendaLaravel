@@ -12,7 +12,7 @@
     
     <div>
     <!--Si metemos el include aparecera siempre-->
-    @include('barra_navegacion')
+    @include('app')
     </div>
     <div>
     <!--Con el yield es como metemos las diferentes vistas en la pagina principal-->
