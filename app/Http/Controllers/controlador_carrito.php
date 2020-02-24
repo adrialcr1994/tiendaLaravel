@@ -19,7 +19,15 @@ class controlador_carrito extends Controller
 
         $carrito= \Session::get('carrito');
         $total= $this->total_pagar();
-        return view('carrito', compact('carrito', 'total'));
+        $finalizar=true;
+
+        foreach($carrito as $item){
+            if($item->stock < $item->cantidad){
+                $finalizar=false;
+            break;
+            }
+        }
+        return view('carrito', compact('carrito', 'total', 'finalizar'));
         
     }
 
@@ -86,5 +94,18 @@ class controlador_carrito extends Controller
             $total += $item->precio_producto * $item->cantidad;
         }
         return $total;
+    }
+
+    //Verificar si se ha logueado
+
+    public function detalle_pedido(){
+
+        if(count(\Session::get('carrito'))<=0) return redirect()->route('home');
+        
+        $carrito= \Session::get('carrito');
+        $total= $this->total_pagar();
+        
+        return view('detalles_pedido', compact('carrito', 'total'));
+        
     }
 }

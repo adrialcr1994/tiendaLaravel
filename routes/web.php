@@ -32,8 +32,11 @@ Route::get('carrito/vaciar', ['as'=>'vaciar_carrito','uses'=>'controlador_carrit
 
 Route::get('carrito/actualizar/{producto}/{cantidad?}', ['as'=>'actualizar_item','uses'=>'controlador_carrito@actualizar_item']);
 
+//login
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route:: get('detalles-pedido',['middleware' => 'auth', 'as' => 'detalle-pedido', 'uses' => 'controlador_carrito@detalle_pedido']);
 

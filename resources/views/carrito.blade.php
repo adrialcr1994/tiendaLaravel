@@ -56,7 +56,7 @@
                                 >
                             @if($item->cantidad > $item->stock)
 
-                            <span>No Hay Suficiente Stock en tienda</span>
+                            <span style="color: red;">No Hay Suficiente Stock en tienda</span>
 
                             <a 
                                     href="#" 
@@ -100,17 +100,12 @@
             <p>
                 
                 <a href="{{route('inicio')}}" class="btn btn-primary"><i class="fa fa-chevron-circle-left"></i> Seguir Comprando</a>
-                @foreach($carrito as $item)
                 
-                @if($item->cantidad > $item->stock)
+                @if($finalizar==false)
                 <a href="#" class="btn btn-warning" hidden>Finalizar Compra <i class="fa fa-chevron-circle-right"></i></a>
-                
                 @else
-                <a href="#" class="btn btn-warning">Finalizar Compra <i class="fa fa-chevron-circle-right"></i></a>
-
+                <a href="{{route('detalle-pedido')}}" class="btn btn-warning">Finalizar Compra <i class="fa fa-chevron-circle-right"></i></a>
                 @endif
-
-                @endforeach
             </p>
         </div>
     </div>
