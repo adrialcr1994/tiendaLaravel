@@ -79,6 +79,16 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    <a class="dropdown-item" href="{{ route('borrar_usuario') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('delete-form').submit();">
+                                        {{ __('Delete') }}
+                                    </a>
+
+                                    <form id="delete-form" action="{{ route('borrar_usuario') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         @endguest

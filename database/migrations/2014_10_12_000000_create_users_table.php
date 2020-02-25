@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('direccion_usuario');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

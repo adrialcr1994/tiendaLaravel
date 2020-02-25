@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class controlador_carrito extends Controller
 {
-
+    //Constructor de session donde guardo el carrito
+    
     public function __construct(){
 
         if(!\Session::has('carrito'))
@@ -96,7 +97,7 @@ class controlador_carrito extends Controller
         return $total;
     }
 
-    //Verificar si se ha logueado
+    //Verificar si se ha logueado o si esta el carrito vacio
 
     public function detalle_pedido(){
 
