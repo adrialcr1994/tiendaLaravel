@@ -39,7 +39,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @foreach(DB::table('categoria')->get() as $categoria)
-                                        <a class="dropdow-item" href="{{route('categorias', $categoria->id_categoria)}}">{{$categoria->nombre_categoria}}</a>
+                                        <a class="dropdow-item" href="{{route('categorias', $categoria->id_categoria)}}">{{$categoria->nombre_categoria}}</a><br>
                                     @endforeach
                             </div>
                         </li>

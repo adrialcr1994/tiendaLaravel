@@ -42,3 +42,5 @@ Route::post('/delete', ['as' => 'borrar_usuario', 'uses' => 'controlador_borrar_
 
 Route:: get('detalles-pedido',['middleware' => 'auth', 'as' => 'detalle-pedido', 'uses' => 'controlador_carrito@detalle_pedido']);
 
+
+Route::get('/actualizar_moneda', ['as' => 'actualizar_moneda', 'uses' => 'controlador_actualizar_moneda@actualizar_moneda']);

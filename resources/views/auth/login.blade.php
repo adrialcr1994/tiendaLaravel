@@ -1,8 +1,8 @@
 @extends('app')
 
 @section('content')
-<div class="container" style="padding:50px;">
-    <div class="row justify-content-center">
+<div class="container-fluid bg-primary " style="padding:170px;">
+    <div class="row  justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>

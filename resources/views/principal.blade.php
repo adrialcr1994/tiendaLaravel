@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<body class="container-fluid" style="margin-top:5%; margin-left:1%;">
+<body class="container-fluid" style="margin-top:5%;">
     
     <div>
     <!--Si metemos el include aparecera siempre-->
