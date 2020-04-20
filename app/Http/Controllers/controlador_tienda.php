@@ -29,4 +29,19 @@ class controlador_tienda extends Controller
         
             return view("productos_por_categoria", ["productos" => $productos]);
     }
+
+    public function actualizar_moneda($id_moneda){
+
+        $valor_moneda= DB::table('monedas')
+            ->where('moneda', $id_moneda)->get();
+        
+        $valor_predefinido = DB::table('producto')->select('precio_producto')->get();
+        
+        foreach($valor_moneda as $valor){
+            
+            $productos = $valor['valor'];
+        }
+
+        dd($productos);
+    }
 }

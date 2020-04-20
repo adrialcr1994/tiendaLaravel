@@ -20,6 +20,8 @@ Route::get('producto/{codigo_producto}', ['as'=>'detalles_producto','uses'=>'con
 
 Route::get('categorias/{id_categoria}', ['as'=>'categorias','uses'=>'controlador_tienda@listar_categorias']);
 
+Route::get('monedas/{id_monedas}', ['as'=>'monedas','uses'=>'controlador_tienda@actualizar_moneda']);
+
 //Carrito
 
 Route::get('carrito/mostrar', ['as'=>'mostrar_carrito','uses'=>'controlador_carrito@mostrar_carrito']);
