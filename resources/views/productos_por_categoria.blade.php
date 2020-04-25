@@ -12,6 +12,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Document</title>
 </head>
+
+<style>
+  #inferior{
+position:relative; /*El div será ubicado con relación a la pantalla*/
+left:600px; /*A la derecha deje un espacio de 0px*/
+right:0px; /*A la izquierda deje un espacio de 0px*/
+bottom:0px; /*Abajo deje un espacio de 0px*/
+height:0px; /*alto del div*/
+z-index:0;
+ }
+</style>
+
 <body>
   
 <div class="container-fluid" style="width: 100%;"></div>
@@ -38,6 +50,7 @@
 @endforeach
 
   </div>
+  <div id="inferior">{{ $productos->links() }}</div>
 </div>
 
 </body>

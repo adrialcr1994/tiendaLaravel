@@ -80,7 +80,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -90,10 +90,15 @@
                                     <a class="dropdown-item" href="{{ route('borrar_usuario') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('delete-form').submit();">
-                                        {{ __('Delete') }}
+                                        {{ __('Borrar Usuario') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('actualizar_usuario') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('actualizar-form').submit();">
+                                        {{ __('Datos Personales') }}
                                     </a>
 
-                                    <form id="delete-form" action="{{ route('borrar_usuario') }}" method="POST" style="display: none;">
+                                    <form id="actualizar-form" action="{{ route('actualizar_usuario') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

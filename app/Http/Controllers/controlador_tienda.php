@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 class controlador_tienda extends Controller
 {
@@ -25,7 +26,7 @@ class controlador_tienda extends Controller
 
     public function listar_categorias($id_categoria){
         $productos= DB::table('producto')
-            ->where('id_categoria', $id_categoria)->get();
+            ->where('id_categoria', $id_categoria)->paginate(3);
         
             return view("productos_por_categoria", ["productos" => $productos]);
     }
@@ -35,13 +36,6 @@ class controlador_tienda extends Controller
         $valor_moneda= DB::table('monedas')
             ->where('moneda', $id_moneda)->get();
         
-        $valor_predefinido = DB::table('producto')->select('precio_producto')->get();
-        
-        foreach($valor_moneda as $valor){
-            
-            $productos = $valor['valor'];
-        }
-
-        dd($productos);
+        $valor_predefinido = DB::table('producto')->select('precio_producto')->get();   
     }
 }
