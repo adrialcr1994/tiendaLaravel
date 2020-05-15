@@ -92,15 +92,14 @@
                                                      document.getElementById('delete-form').submit();">
                                         {{ __('Borrar Usuario') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('actualizar_usuario') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('actualizar-form').submit();">
-                                        {{ __('Datos Personales') }}
-                                    </a>
 
-                                    <form id="actualizar-form" action="{{ route('actualizar_usuario') }}" method="POST" style="display: none;">
+                                    <form id="delete-form" action="{{ route('borrar_usuario') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    <a class="dropdown-item" href="{{ route('formulario') }}">
+                                        {{ __('Actualizar Datos') }}
+                                    </a>
                                 </div>
                             </li>
                         @endguest

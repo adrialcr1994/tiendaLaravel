@@ -53,7 +53,7 @@
                         Total a pagar: {{number_format($total,2)}} €
                     </span><hr>
                     <a href="{{route('mostrar_carrito')}}" class="btn btn-primary"><i class="fa fa-chevron-circle-left"></i> Volver</a>
-                    <a href="#" class="btn btn-warning">Proceder el pago <i class="fa fa-chevron-circle-right"></i></a>
+                    <a href="{{route('payment')}}" class="btn btn-warning">Proceder el pago <i class="fa fa-chevron-circle-right"></i></a>
                 </h3>
         </div>
     </div>

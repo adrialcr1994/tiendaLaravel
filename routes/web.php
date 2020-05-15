@@ -42,10 +42,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/borrar', ['as' => 'borrar_usuario', 'uses' => 'controlador_borrar_usuario@borrar_usuario']);
 
-Route::post('/actualizar', ['as' => 'actualizar_usuario', 'uses' => 'controlador_actualizar_usuario@actualizar_usuario']);
+Route::get('/formulario_actualizar_usuario', ['as' => 'formulario', 'uses' => 'controlador_pintar_formulario@pintar_formulario']);
+
+Route::get('/actualizar', ['as' => 'actualizar_usuario', 'uses' => 'controlador_actualizar_usuario@actualizar_usuario']);
 
 Route:: get('detalles-pedido',['middleware' => 'auth', 'as' => 'detalle-pedido', 'uses' => 'controlador_carrito@detalle_pedido']);
 
 
 //monedas
 Route::get('/actualizar_moneda', ['as' => 'actualizar_moneda', 'uses' => 'controlador_actualizar_moneda@actualizar_moneda']);
+
+//PayPal
+Route::get('payment', ['as' => 'payment', 'uses' => 'PaypalController@postPayment']);
+
+Route::get('payment/status', ['as' => 'payment_status', 'uses' => 'PaypalController@getPaymentStatus']);
