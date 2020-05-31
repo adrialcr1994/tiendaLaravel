@@ -47,9 +47,12 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Monedas</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @foreach(DB::table('monedas')->get() as $moneda)
-                                        <a class="dropdow-item" href="{{route('monedas', $moneda->moneda)}}">{{$moneda->moneda}}</a><br>
+                                        <a class="dropdow-item" href="{{route('conversor', $moneda->moneda)}}">{{$moneda->moneda}}</a><br>
                                     @endforeach
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('pedidos')}}">Pedidos </a>
                         </li>
                     </ul>
                 </div>

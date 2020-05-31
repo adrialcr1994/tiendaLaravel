@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidateRequests;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
@@ -31,6 +33,45 @@ class PaypalController extends Controller
     }
 
     public function postPayment(){
+
+    //Crear el pedido
+
+    $datos_pedido= \Session::get('carrito');
+
+    //Cogemos los datos del usuario logueado que necesitemos
+    $direccion_usuario= auth()->user()->direccion;
+
+    $nombre_usuario=auth()->user()->nombre;
+
+    $correo_usuario=auth()->user()->email;
+
+    $dni_usuario=auth()->user()->dni;
+
+    $id_usuario= auth()->user()->id_usuario;
+
+    //Cogemos los datos del carrito que necesitemos
+    foreach($datos_pedido as $dato){
+
+    $codigo_producto= $dato->codigo_producto;
+
+    }
+    //En un array metemos todos los datos que hemos recogido
+    $resumen_pedido= array(
+
+        'fecha_realizacion_pedido' => now(),
+        'estado_pedido' => 'tramite',
+        'direccion_pedido'=> $direccion_usuario,
+        'nombre_usuario' => $nombre_usuario,
+        'correo_usuario' => $correo_usuario,
+        'dni_usuario' => $dni_usuario,
+        'id_usuario' => $id_usuario,
+        'codigo_producto' => $codigo_producto
+    );
+    //Con el insert() introducimos el array en la base de datos
+    \DB::table('resumen_pedido')->insert($resumen_pedido);
+
+    //PAYPAL
+    
         $payer = new Payer();
         $payer -> setPaymentMethod('paypal');
 
@@ -112,6 +153,7 @@ class PaypalController extends Controller
         }
         return \Redirect::route('mostrar_carrito')
         ->with('Error Desconocido');
+
     }
 
 
@@ -143,5 +185,7 @@ class PaypalController extends Controller
 
         return  \Redirect::route('inicio')
         ->with('message', "Compra cancelada");
+
+        
     }
 }

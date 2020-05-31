@@ -22,6 +22,9 @@ Route::get('categorias/{id_categoria}', ['as'=>'categorias','uses'=>'controlador
 
 Route::get('monedas/{id_monedas}', ['as'=>'monedas','uses'=>'controlador_tienda@actualizar_moneda']);
 
+Route::get('pedidos', ['as'=>'pedidos','uses'=>'controlador_pedidos@pedidos']);
+
+Route::get('cancelar_pedido/{id_pedido}', ['as'=>'cancelar_pedido','uses'=>'controlador_pedidos@cancelar_pedido']);
 //Carrito
 
 Route::get('carrito/mostrar', ['as'=>'mostrar_carrito','uses'=>'controlador_carrito@mostrar_carrito']);
@@ -48,11 +51,24 @@ Route::get('/actualizar', ['as' => 'actualizar_usuario', 'uses' => 'controlador_
 
 Route:: get('detalles-pedido',['middleware' => 'auth', 'as' => 'detalle-pedido', 'uses' => 'controlador_carrito@detalle_pedido']);
 
-
-//monedas
-Route::get('/actualizar_moneda', ['as' => 'actualizar_moneda', 'uses' => 'controlador_actualizar_moneda@actualizar_moneda']);
-
 //PayPal
 Route::get('payment', ['as' => 'payment', 'uses' => 'PaypalController@postPayment']);
 
 Route::get('payment/status', ['as' => 'payment_status', 'uses' => 'PaypalController@getPaymentStatus']);
+
+//PDF
+
+Route::get('pdf/{id_pedido})', ['as'=>'pdf','uses'=>'controlador_pedidos@descargar_pdf']);
+
+//Email
+
+Route::get('correo/{id_pedido}', ['as'=>'correo','uses'=>'controlador_pedidos@email']);
+
+//GeoIP
+
+Route::get('geoip', ['as'=>'geoip','uses'=>'controlador_geoip@geoip']);
+
+//Conversor_monedas
+
+Route::get('conversor/{$id_moneda}', ['as'=>'conversor','uses'=>'controlador_conversor@conversor_moneda']);
+

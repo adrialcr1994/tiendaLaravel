@@ -9,6 +9,8 @@ use App\User;
 class controlador_pintar_formulario extends Controller
 {
     public function pintar_formulario(){
+
+        //Este formulario imprime los datos actuales del usuario registrado
         
         $usuario = User::find(Auth::id());
 
